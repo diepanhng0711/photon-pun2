@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -45,6 +46,12 @@ public class PlayerListingMenu : MonoBehaviourPunCallbacks
     // }
 
     private void GetCurrentRoomPlayers() {
+        if (!PhotonNetwork.IsConnected)
+            return ;
+        
+        if (PhotonNetwork.CurrentRoom == null || PhotonNetwork.CurrentRoom.Players == null)
+            return ;
+
         foreach (KeyValuePair<int, Player> playerInfo in PhotonNetwork.CurrentRoom.Players)
         {
             AddPlayerListing(playerInfo.Value);
@@ -77,6 +84,14 @@ public class PlayerListingMenu : MonoBehaviourPunCallbacks
         if (index != -1) {
             Destroy(_listings[index].gameObject);
             _listings.RemoveAt(index);
+        }
+    }
+
+    public void OnClick_StartGame() {
+        if (PhotonNetwork.IsMasterClient) {
+            PhotonNetwork.CurrentRoom.IsOpen = false;
+            PhotonNetwork.CurrentRoom.IsVisible = false;
+            PhotonNetwork.LoadLevel(1);
         }
     }
 }
