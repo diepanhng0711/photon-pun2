@@ -24,9 +24,10 @@ public class TestConnect : MonoBehaviourPunCallbacks
     // Connect to the master server
     public override void OnConnectedToMaster() {
         Debug.Log("Connecting to the server");
-        print(PhotonNetwork.LocalPlayer.NickName);
-
-        PhotonNetwork.JoinLobby();
+        Debug.Log(PhotonNetwork.LocalPlayer.NickName);
+        if (!PhotonNetwork.InLobby) {
+            PhotonNetwork.JoinLobby();
+        }
     }
 
     public override void OnDisconnected(DisconnectCause cause)

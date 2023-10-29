@@ -695,8 +695,9 @@ GameObject:
   - component: {fileID: 644262517}
   - component: {fileID: 644262516}
   - component: {fileID: 644262515}
+  - component: {fileID: 644262518}
   m_Layer: 0
-  m_Name: LeaveRoom
+  m_Name: LeaveRoomMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -767,9 +768,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CreateRoomMenu, Assembly-CSharp
-        m_MethodName: OnClick_CreateRoom
+      - m_Target: {fileID: 644262518}
+        m_TargetAssemblyTypeName: LeaveRoomMenu, Assembly-CSharp
+        m_MethodName: OnClick_LeaveRoom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -814,6 +815,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644262513}
   m_CullTransparentMesh: 1
+--- !u!114 &644262518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644262513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6afee06fa7f6894419696a3618bdc735, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &708328878
 GameObject:
   m_ObjectHideFlags: 0
@@ -2917,6 +2930,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58ff041f118d64c46863dc90eaa2da7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerListingMenu: {fileID: 1385703741}
+  _leaveRoomMenu: {fileID: 644262518}
 --- !u!114 &2010680557
 MonoBehaviour:
   m_ObjectHideFlags: 0
