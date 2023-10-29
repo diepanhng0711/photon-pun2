@@ -10,7 +10,7 @@ public class MasterManager : SingletonScriptableObject<MasterManager>
     public static GameSettings GameSettings {
         get 
         {
-            return instance._gameSettings;
+            return Instance._gameSettings;
         }
     }
 }
